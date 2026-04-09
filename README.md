@@ -8,7 +8,7 @@ https://docs.cypress.io
 
 This project follows a **scalable Cypress + TypeScript architecture** using  
 **Page Object Model (POM)** + **Component-based design**.
-
+---
 📦 E2E-TESTS-DOCS-CYPRESS
 ├── 📁 components/ # Reusable UI components
 │ ├── Header.ts
@@ -70,7 +70,7 @@ This project follows a **scalable Cypress + TypeScript architecture** using
 ├── 📄 README.md
 ├── 📄 TEST-PLAN.md
 └── 📄 TEST-SCENARIOS.md
-
+---
 ---
 
 ---
