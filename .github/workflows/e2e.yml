@@ -19,8 +19,8 @@ jobs:
       - name: Build Docker image
         run: docker build -t cypress-tests .
 
-      - name: Run stablle tests in Docker
-        run: docker run cypress-tests --spec "cypress/e2e/{api,search,sidebar}/**/* .cy.ts"
+      - name: Run stable tests in Docker
+        run: docker run cypress-tests --spec "cypress/e2e/{api,search,sidebar}/**/*.cy.ts"
   future-tests:
     runs-on: ubuntu-latest
     continue-on-error: true
