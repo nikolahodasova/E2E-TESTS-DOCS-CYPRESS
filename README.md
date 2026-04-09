@@ -77,6 +77,17 @@ This project follows a **scalable Cypress + TypeScript architecture** using
 
 ## 🧠 Architecture Overview
 
+### ⚙️ CI/CD
+
+#### GitHub Actions
+Tests run automatically on every push.
+
+#### Jenkins
+Pipeline configured using Docker container execution.
+
+#### Docker
+Tests run inside Cypress Docker container.
+
 ### 🔹 Components
 Reusable UI interaction layers (Header, Sidebar, Search)  
 → Promotes **reusability and cleaner selectors**

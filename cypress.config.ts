@@ -8,7 +8,10 @@ export default defineConfig({
       allureWriter(on, config);
       return config;
     },
-    retries: 2,
+    retries: {
+      runMode: 2,
+      openMode: 0
+    },
     viewportWidth: 1280,
     viewportHeight: 800
   }
