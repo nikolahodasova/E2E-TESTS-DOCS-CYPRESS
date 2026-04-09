@@ -1,246 +1,266 @@
-# 🚀 Cypress QA Automation Project
+# 🌟 Cypress E2E Tests – QA Skills Evaluation
 
-This project contains End-to-End (E2E) and API tests for the Cypress Documentation website.
+## 📌 Project Overview
 
-https://docs.cypress.io
+This project was created as part of a **Software QA Skills Evaluation**.
+It demonstrates a **scalable End-to-End (E2E) test automation framework** built using:
+
+* Cypress (latest stable)
+* TypeScript
+* Page Object Model (POM)
+* Component-based design
+* Docker
+* CI/CD (GitHub Actions + Jenkins)
+* Allure reporting
+
 ---
+
+## 🎯 Objectives
+
+The goal was to test the following features on:
+👉 https://docs.cypress.io/
+
+### Covered Features
+
+* 🔍 **Search functionality**
+* 📂 **Sidebar navigation (real feature)**
+* 📊 **Dashboard (future feature)**
+* 🌐 **Spanish language support (future feature)**
+* 🔗 **REST API testing (JSONPlaceholder)**
+
+---
+
+## ⚠️ Note on Future Features
+
+The following features are **not currently implemented** on the Cypress Docs site:
+
+* Dashboard sidebar category
+* Spanish language support
+
+Tests for these features are:
+
+* Designed based on expected behavior
+* Included in the project
+* Executed separately in CI
+* Allowed to fail intentionally (future-ready)
+
+---
+
+## 🏗️ Architecture
+
+This project follows a **clean, scalable architecture**:
+
+* Page Object Model (POM)
+* Component-based structure
+* Feature-based test organization
+* Reusable utilities and helpers
+
+---
+
 ## 📁 Project Structure
 
-This project follows a **scalable Cypress + TypeScript architecture** using  
-**Page Object Model (POM)** + **Component-based design**.
-
 ```text
-📦 E2E-TESTS-DOCS-CYPRESS
-├── 📁 components/ # Reusable UI components
-│ ├── Header.ts
-│ ├── SearchComponent.ts
-│ └── Sidebar.ts
+📦 e2e-tests-docs-cypress
+├── 📁 components/
+│   ├── Header.ts
+│   ├── SearchComponent.ts
+│   └── Sidebar.ts
 │
-├── 📁 config/ # Environment & route configuration
-│ ├── env.ts
-│ └── urls.ts
+├── 📁 config/
+│   ├── env.ts
+│   └── urls.ts
 │
 ├── 📁 cypress/
-│ ├── 📁 e2e/ # Test specs grouped by feature
-│ │ ├── 📁 api/
-│ │ │ └── posts.cy.ts
-│ │ ├── 📁 dashboard/
-│ │ │ └── dashboard.cy.ts
-│ │ ├── 📁 language/
-│ │ │ └── spanish-language.cy.ts
-│ │ ├── 📁 search/
-│ │ │ └── search.cy.ts
-│ │ └── 📁 sidebar/
-│ │ └── sidebar.cy.ts
-│ │
-│ ├── 📁 fixtures/ # Static test data
-│ │ ├── apiData.json
-│ │ └── searchData.json
-│ │
-│ ├── 📁 pages/ # Page Object Model (POM)
-│ │ ├── 📁 base/
-│ │ │ └── BasePage.ts
-│ │ ├── 📁 dashboard/
-│ │ │ └── DashboardPage.ts
-│ │ ├── 📁 language/
-│ │ │ └── LanguagePage.ts
-│ │ ├── 📁 search/
-│ │ │ └── SearchPage.ts
-│ │ └── 📁 sidebar/
-│ │ └── SidebarPage.ts
-│ │
-│ ├── 📁 screenshots/ # Cypress failure screenshots
-│ │
-│ └── 📁 support/ # Global Cypress setup
-│ ├── 📁 types/
-│ │ └── custom.d.ts # Custom TS declarations
-│ ├── allure.ts # Allure helpers
-│ ├── commands.ts # Custom Cypress commands
-│ └── e2e.ts # Global hooks & config
+│   ├── 📁 e2e/
+│   │   ├── api/
+│   │   │   └── posts.cy.ts
+│   │   ├── dashboard/
+│   │   │   └── dashboard.cy.ts
+│   │   ├── language/
+│   │   │   └── spanish-language.cy.ts
+│   │   ├── search/
+│   │   │   └── search.cy.ts
+│   │   └── sidebar/
+│   │       └── sidebar.cy.ts
+│   │
+│   ├── 📁 fixtures/
+│   │   ├── apiData.json
+│   │   └── searchData.json
+│   │
+│   ├── 📁 pages/
+│   │   ├── base/
+│   │   │   └── BasePage.ts
+│   │   ├── dashboard/
+│   │   │   └── DashboardPage.ts
+│   │   ├── language/
+│   │   │   └── LanguagePage.ts
+│   │   ├── search/
+│   │   │   └── SearchPage.ts
+│   │   └── sidebar/
+│   │       └── SidebarPage.ts
+│   │
+│   ├── 📁 screenshots/
+│   │
+│   └── 📁 support/
+│       ├── 📁 types/
+│       │   └── custom.d.ts
+│       ├── allure.ts
+│       ├── commands.ts
+│       └── e2e.ts
 │
-├── 📁 utils/ # Helper functions & constants
-│ ├── constants.ts
-│ └── helpers.ts
+├── 📁 utils/
+│   ├── constants.ts
+│   └── helpers.ts
 │
-├── ⚙️ cypress.config.ts # Cypress configuration
-├── ⚙️ tsconfig.json # TypeScript configuration
-├── 🐳 Dockerfile # Docker execution setup
-├── 📦 package.json # Dependencies & scripts
-├── 📦 package-lock.json
-│
-├── 📄 README.md
-├── 📄 TEST-PLAN.md
-└── 📄 TEST-SCENARIOS.md
+├── cypress.config.ts
+├── tsconfig.json
+├── Dockerfile
+├── Jenkinsfile
+├── package.json
+├── package-lock.json
+├── README.md
+├── TEST-PLAN.md
+└── TEST-SCENARIOS.md
 ```
 
 ---
 
-## 🧠 Architecture Overview
+## 🚀 Installation & Setup
 
-### ⚙️ CI/CD
+### Prerequisites
 
-#### GitHub Actions
-Tests run automatically on every push.
-
-#### Jenkins
-Pipeline configured using Docker container execution.
-
-#### Docker
-Tests run inside Cypress Docker container.
-
-### 🔹 Components
-Reusable UI interaction layers (Header, Sidebar, Search)  
-→ Promotes **reusability and cleaner selectors**
+* Node.js (v20.x)
+* npm (v8+)
+* Docker (optional, recommendet for isolated test execution)
+* Jenkins (optional, for local/internal CI pipelines)
+* GitHub Actions (Main CI/CD environment)
 
 ---
 
-### 🔹 Pages (POM)
-Encapsulates page-level behavior and logic  
-→ Improves **maintainability and scalability**
-
----
-
-### 🔹 E2E Tests
-Grouped by feature:
-- `search`
-- `dashboard`
-- `language`
-- `sidebar`
-- `api`
-
-→ Enables **modular and scalable testing**
-
----
-
-### 🔹 Fixtures
-Static JSON data used in tests  
-→ Supports **data-driven testing**
-
----
-
-### 🔹 Support Layer
-- Custom commands
-- Global hooks
-- Allure integration
-
-→ Centralizes **test setup and extensions**
-
----
-
-### 🔹 Utils
-Shared helpers and constants  
-→ Reduces duplication across tests
-
----
-
-### 🔹 Config
-Environment variables and routes  
-→ Avoids hardcoding and improves flexibility
-
----
-
-## 🚀 Design Principles
-
-- ✅ Separation of concerns  
-- ✅ Reusability (Components + Commands)  
-- ✅ Scalability (feature-based structure)  
-- ✅ Maintainability (POM pattern)  
-- ✅ Type safety (TypeScript)  
-- ✅ CI/CD & Docker ready  
-
----
-
-## 📌 Features Covered
-
-- 🔎 Search functionality
-- 📂 Dashboard navigation
-- 🌐 Spanish localization
-- 🔌 REST API (JSONPlaceholder)
-
----
-
-## 🛠 Tech Stack
-
-- Cypress
-- Node.js
-- Typescript
-- GitLab (CI/CD ready)
-
----
-
-## ⚙️ Environment Setup
-
-### 1. Prerequisites
-
-- Node.js (v18 or higher)
-- npm (comes with Node)
-- Git
-
----
-
-### 2. Installation
+### Install dependencies
 
 ```bash
-# Clone repository
-git clone <your-repo-url>
-
-# Navigate to project
-cd project-name
-
-# Install dependencies
 npm install
-
-# Allure report setup
-npm install --save-dev @shelex/cypress-allure-plugin allure-commandline
 ```
-
-# Running Tests
-
-This document describes how to execute tests locally, in CI, and using Docker.
-
+⚠️ If the allure plugin is acting up (cannot find 'cy'), run:
+```bash
+npm install @shelex/cypress-allure-plugin --force
+```
 ---
 
-## Run Tests Locally
+## ▶️ Running Tests
 
-### Open Cypress UI (interactive mode)
+### Run Cypress UI
 
 ```bash
 npx cypress open
 ```
-### Run all tests
+
+---
+
+### Run headless tests
 
 ```bash
 npx cypress run
 ```
-### Run specific spec
+
+---
+
+### Run only stable tests (CI equivalent)
 
 ```bash
-npx cypress run --spec "cypress/e2e/search.cy.js"
-```
-### Run with Allure reports
-
-# run tests with Allure results
-```bash
-npx cypress run
+npx cypress run --spec "cypress/e2e/{api,search,sidebar}/**/*.cy.ts"
 ```
 
-# generate report
-```bash
-npx allure generate allure-results --clean -o allure-report
-```
+---
 
-# open report
-```bash
-npx allure open allure-report
-```
+## 🐳 Docker Execution
 
-### Run tests via Docker
+### Build image
+
 ```bash
-# build image
 docker build -t cypress-tests .
 ```
 
-# run tests
+### Run tests
+
 ```bash
 docker run cypress-tests
 ```
+
+---
+
+## ⚙️ CI/CD
+
+### GitHub Actions
+
+* Runs automatically on every push
+* Executes **stable tests** (required to pass)
+* Executes **future tests** (allowed to fail)
+* Ensures pipeline reliability
+
+### CI Strategy
+
+| Test Type                           | Execution          |
+| ----------------------------------- | ------------------ |
+| Stable tests (API, Search, Sidebar) | ✅ Required to pass |
+| Future tests (Dashboard, Language)  | ⚠ Allowed to fail  |
+
+---
+
+### Jenkins (Bonus)
+
+Pipeline uses Docker for execution:
+
+* Builds Docker image
+* Runs Cypress tests inside container
+
+---
+
+## 📊 Reporting
+
+* Allure reporting integrated
+* Screenshots captured on failure
+
+---
+
+## 🧠 Best Practices Applied
+
+* Page Object Model (POM)
+* Component abstraction
+* Custom Cypress commands
+* Environment configuration
+* Stable selector strategy
+* Handling dynamic UI (cookie consent)
+* Separation of test types (stable vs future)
+* CI/CD integration
+
+---
+
+## 📊 Coverage Mapping
+
+| Feature   | Test File              |
+| --------- | ---------------------- |
+| Search    | search.cy.ts           |
+| Sidebar   | sidebar.cy.ts          |
+| Dashboard | dashboard.cy.ts        |
+| Language  | spanish-language.cy.ts |
+| API       | posts.cy.ts            |
+
+---
+
+## 👩🏻‍💻 Author
+
+**Nikola Hodásová**
+
+---
+
+## 🤖 Tools & Assistance
+
+This project was developed with support from:
+
+* ChatGPT (architecture, CI/CD)
+* Gemini (research and validation support)
+
+---
+
