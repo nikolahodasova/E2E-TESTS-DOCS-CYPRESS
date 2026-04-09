@@ -1,0 +1,5 @@
+{
+  "valid": "intercept",
+  "invalid": "@#$%",
+  "empty": ""
+}

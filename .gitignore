@@ -1,0 +1,25 @@
+# Node dependencies
+node_modules/
+
+# Cypress artifacts
+cypress/videos/
+cypress/screenshots/
+
+# Allure reports
+allure-results/
+allure-report/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE (optional but recommended)
+.vscode/
+.idea/
+
+# Environment variables (if added later)
+.env
+.env.*

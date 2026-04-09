@@ -1,0 +1,10 @@
+{
+  "createPost": {
+    "title": "QA Test",
+    "body": "Automation",
+    "userId": 1
+  },
+  "updatePost": {
+    "title": "Updated Title"
+  }
+}
